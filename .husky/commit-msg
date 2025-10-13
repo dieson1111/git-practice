@@ -1,2 +1,1 @@
-#!/bin/sh
-npx commitlint --from $1
+npx --no-install commitlint --edit 

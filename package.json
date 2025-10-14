@@ -6,8 +6,7 @@
   "scripts": {
     "lint": "npx commitlint --from=HEAD~1",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "prepare": "husky",
-    "cm": "cz"
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +15,6 @@
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
-    "commitizen": "^4.3.1",
     "husky": "^9.1.7"
   }
 }

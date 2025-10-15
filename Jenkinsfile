@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  tools {
+    nodejs "Nodejs"
+  }
   stages {
     stage('Install') {
       steps { sh 'npm ci' }

@@ -14,8 +14,10 @@ pipeline {
       steps { sh 'npm run build' }
     }
     stage('Deploy') {
-      steps { sh 'echo "Deploy step here (e.g. upload, docker build/push...)"' }
-      steps { sh 'npm run start' }
+      steps { 
+        echo 'Starting application...'
+        sh 'npm run start' 
+      }
     }
   }
   post {

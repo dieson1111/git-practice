@@ -1,5 +1,4 @@
-pipeline {
-  agent any
+nodejs('Nodejs') {
   stages {
     stage('Install') {
       steps { sh 'npm ci' }

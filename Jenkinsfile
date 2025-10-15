@@ -2,7 +2,6 @@ pipeline {
     agent any
     tools {
         nodejs 'Nodejs'
-        docker 'Docker'
     }
     stages {
         stage('Install') {

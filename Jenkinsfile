@@ -14,8 +14,8 @@ pipeline {
       steps { sh 'npm run build' }
     }
     stage('Deploy') {
-      when { branch 'main' }
       steps { sh 'echo "Deploy step here (e.g. upload, docker build/push...)"' }
+      steps { sh 'npm run start' }
     }
   }
   post {

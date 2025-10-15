@@ -1,27 +1,24 @@
 pipeline {
-  agent any
-  tools {
-    nodejs "Nodejs"
-  }
-  stages {
-    stage('Install') {
-      steps { sh 'npm ci' }
+    agent any
+    tools {
+        nodejs 'Nodejs'
     }
-    stage('Test') {
-      steps { sh 'npm test' }
+    stages {
+        stage('Install') {
+            steps { sh 'npm ci' }
+        }
+        stage('Test') {
+            steps { sh 'npm test' }
+        }
+        stage('Build') {
+            steps { sh 'npm run build' }
+        }
+        stage('Deploy') {
+            steps { sh 'echo "Deploy step here (e.g. upload, docker build/push...)"' }
+        }
     }
-    stage('Build') {
-      steps { sh 'npm run build' }
+    post {
+        success { echo '✅ Build & Test Passed! Ready for Deploy.' }
+        failure { echo '❌ Build/Test Failed.' }
     }
-    stage('Deploy') {
-      steps { 
-        echo 'Starting application...'
-        sh 'npm run start' 
-      }
-    }
-  }
-  post {
-    success { echo '✅ Build & Test Passed! Ready for Deploy.' }
-    failure { echo '❌ Build/Test Failed.' }
-  }
 }

@@ -15,6 +15,7 @@ pipeline {
         }
         stage('Deploy') {
             steps { sh 'echo "Deploy step here (e.g. upload, docker build/push...)"' }
+            steps { sh 'docker run -d --name git-practice-instance -p 3000:3000 git-practice:latest' }
         }
     }
     post {

@@ -7,8 +7,8 @@ WORKDIR /app
 # 只複製 package 檔案，提升快取建置效率
 COPY package*.json ./
 
-# 安裝所有依賴（生產與開發）
-RUN npm ci --omit=dev
+# 安裝所有依賴（生產與開發）, 並忽略 postinstall 腳本（如有）
+RUN npm ci --omit=dev --ignore-scripts
 
 # 複製你的所有原始碼
 COPY . .

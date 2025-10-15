@@ -10,7 +10,7 @@
     "dev": "nodemon ./src/app.js",
     "test": "jest --runInBand --passWithNoTests",
     "test:watch": "jest --watch",
-    "build": "echo \"No build step for plain JS\" && exit 0"
+    "build": "docker build -t git-practice:latest ."
   },
   "keywords": [],
   "author": "",

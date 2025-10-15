@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools {
         nodejs 'Nodejs'
+        docker 'Docker'
     }
     stages {
         stage('Install') {
@@ -11,9 +12,7 @@ pipeline {
             steps { sh 'npm test' }
         }
         stage('Build') {
-            script {
-                docker.build('my-local-app:latest')
-            }
+            steps { sh 'npm run build' }
         }
         stage('Deploy') {
             steps { sh 'echo "Deploy step here (e.g. upload, docker build/push...)"' }

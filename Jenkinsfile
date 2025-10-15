@@ -11,7 +11,9 @@ pipeline {
             steps { sh 'npm test' }
         }
         stage('Build') {
-            steps { sh 'npm run build' }
+            script {
+                docker.build('my-local-app:latest')
+            }
         }
         stage('Deploy') {
             steps { sh 'echo "Deploy step here (e.g. upload, docker build/push...)"' }

@@ -2,19 +2,29 @@
   "name": "git-practice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/app.js",
   "scripts": {
+    "prepare": "husky",
     "lint": "npx commitlint --from=HEAD~1",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "prepare": "husky"
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js",
+    "test": "jest --runInBand --passWithNoTests",
+    "test:watch": "jest --watch",
+    "build": "echo \"No build step for plain JS\" && exit 0"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
